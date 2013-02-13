@@ -1,8 +1,8 @@
 import csplot
 import time 
 import random
-from copy import deepcopy
-from copy import copy
+from copy import deepcopy	#for copying Boards
+from copy import copy		#for copying states
 
 class Board():
     class_attribute = None
@@ -62,7 +62,7 @@ class Board():
 	return new
     
     def diagnals(self):
-	# applies diagnal lines form all corners
+	# applies diagnal lines from all corners
 	new = deepcopy(self)
 	new = update1a(new)
 	new = update1b(new)
@@ -70,7 +70,7 @@ class Board():
 	return update1d(new)
      
     def random(self):
-	# returns a board generated randomly of the same size as input
+	# returns a board generated randomly of the same size as self
 	new = deepcopy(self)
 	new.board = [[random.choice([0,1])for x in ([0]*self.width)] 
 	        for z in [0]*self.height]
@@ -78,13 +78,13 @@ class Board():
     
     
     def fill(self):
-	# returns a board that is all 1s, same dimentions as B
+	# returns a board that is all 1s, same dimentions as self
 	new = deepcopy(self)
 	new.board = [[1]*self.width for R in [1]*self.height]
 	return new
 		    
     def blank(self):
-	# returns a board that is all 1s, same dimentions as B
+	# returns a board that is all 1s, same dimentions as self
 	new = deepcopy(self)
 	new.board = [[0]*self.width for R in [1]*self.height]
 	return new
